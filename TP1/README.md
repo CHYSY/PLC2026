@@ -11,7 +11,7 @@ Id: A109929.
 
 Escrever uma expressão regular que reconheça strings binárias que não contenham a substring `011`.
 
-# Resolução:
+### Resolução:
 
 ```
 1*0*(01)*0*
