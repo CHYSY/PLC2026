@@ -14,5 +14,5 @@ Escrever uma expressão regular que reconheça strings binárias que não conten
 ### Resolução:
 
 ```
-1*0*(01)*0*
+^1*0*(01)*0*$
 ```
