@@ -94,7 +94,7 @@ def asteriscos_aux(match):
         return f"<b>{texto}</b>"
 text = re.sub(asteriscos,asteriscos_aux,text)
 ```
-ENeste bloco é utilizada uma expressão regular para identificar texto entre um ou dois asteriscos. A função asteriscos_aux verifica a quantidade de asteriscos: com um asterisco transforma o texto em itálico (\<i>) e com dois transforma-o em negrito (\<b>). A substituição é feita através de re.sub.
+Neste bloco é utilizada uma expressão regular para identificar texto entre um ou dois asteriscos. A função asteriscos_aux verifica a quantidade de asteriscos: com um asterisco transforma o texto em itálico (\<i>) e com dois transforma-o em negrito (\<b>). A substituição é feita através de re.sub.
 
 ### Listas:
 ```python
