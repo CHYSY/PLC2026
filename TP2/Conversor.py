@@ -21,7 +21,6 @@ def converte(text):
     text = re.sub(asteriscos,asteriscos_aux,text)
 
     listas = r"(?:^\d+\. .+(?:\n|$))+"
-
     def listas_aux(match):
         linhas = match.group(0).strip().split("\n")
 
@@ -36,16 +35,15 @@ def converte(text):
 
 
     midia = r"(!)?\[([^\]]+)\]\(([^\)]+)\)"
-    
     def midia_aux(match):
         is_image = match.group(1) # Será "!" se for imagem, ou None se for link
         texto = match.group(2)
         url = match.group(3)
         
         if is_image:
-            return f'<img src="{url}" alt="{texto}"/>\n'
+            return f'<img src="{url}" alt="{texto}"/>'
         else:
-            return f'<a href="{url}">{texto}</a>\n'
+            return f'<a href="{url}">{texto}</a>'
             
     text = re.sub(midia, midia_aux, text)
 
