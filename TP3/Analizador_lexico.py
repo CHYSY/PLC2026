@@ -4,7 +4,7 @@ import re
 def tokenize(input_string):
     reconhecidos = []
     linha = 1
-    mo = re.finditer(r'(?P<COM>\#.*)|(?P<VAR>\?\w+)|(?P<LING>@[A-Za-z]{2})|(?P<STRING>\"[^"]*\")|(?P<CONCEITOS>[\w:]+)|(?P<DELIMITER>[{}\.])|(?P<LIMIT>LIMIT\b)|(?P<INT>\d+)|(?P<SKIP>[ \t]+)|(?P<NEWLINE>\n)|(?P<ERRO>.)', input_string)
+    mo = re.finditer(r'(?P<COM>\#.*)|(?P<VAR>\?\w+)|(?P<LING>@[A-Za-z]{2})|(?P<STRING>\"[^"]*\")|(?P<LIMIT>LIMIT\b)|(?P<INT>\d+)|(?P<CONCEITOS>[\w:]+)|(?P<DELIMITER>[{}\.])|(?P<SKIP>[ \t]+)|(?P<NEWLINE>\n)|(?P<ERRO>.)', input_string)
     for m in mo:
         dic = m.groupdict()
         if dic['COM']:
@@ -49,7 +49,8 @@ def tokenize(input_string):
     
         else:
             t = ("UNKNOWN", m.group(), linha, m.span())
-        if not dic['SKIP'] and t[0] != 'UNKNOWN': reconhecidos.append(t)
+
+        if not dic['SKIP'] and t[0] not in ('UNKNOWN', 'COM','NEWLINE'): reconhecidos.append(t)
 
     return reconhecidos
 
